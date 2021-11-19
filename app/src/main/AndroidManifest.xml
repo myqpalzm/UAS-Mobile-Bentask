@@ -3,6 +3,7 @@
     package="id.ac.umn.uas_mobile_bentask">
 
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,8 +14,7 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".AlarmActivity"
-            android:exported="true" />
+            android:name=".AlarmActivity"/>
         <activity
             android:name=".ActivitySplashScreen"
             android:exported="true"
@@ -25,7 +25,8 @@
             </intent-filter>
         </activity>
         <receiver android:name=".AlarmBroadcastReceiver"
-            android:enabled="false">
+            android:enabled="false"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>
             </intent-filter>
