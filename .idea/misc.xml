@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/activity_splash_screen.xml" value="0.17300724637681159" />
-        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/fragment_calendar_view.xml" value="0.1" />
-        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/fragment_create_task.xml" value="0.1" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_alarm.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/dialog_completed_theme.xml" value="0.22" />
+        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/item_task.xml" value="0.20677083333333332" />
       </map>
     </option>
   </component>
