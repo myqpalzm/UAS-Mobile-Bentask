@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_alarm.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/dialog_completed_theme.xml" value="0.22" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/item_task.xml" value="0.20677083333333332" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/drawable/btn_background.xml" value="0.14739583333333334" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/drawable/btn_border.xml" value="0.14739583333333334" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/activity_alarm.xml" value="0.13125" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/activity_splash_screen.xml" value="0.17300724637681159" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/dialog_completed_theme.xml" value="0.13125" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/fragment_calendar_view.xml" value="0.1" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/fragment_create_task.xml" value="0.1" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/item_task.xml" value="0.13125" />
+        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/menu/menu.xml" value="0.13125" />
       </map>
     </option>
   </component>
