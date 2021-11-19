@@ -13,8 +13,6 @@
         android:paddingBottom="50dp"
         android:orientation="vertical">
 
-
-
         <TextView
             fontPath="fonts/nunito_extra_bold.ttf"
             android:layout_width="wrap_content"
@@ -69,7 +67,9 @@
             tools:ignore="MissingPrefix" />
 
         <TextView
+            android:drawableLeft="@drawable/image5"
             android:layout_marginLeft="3dp"
+            android:drawablePadding="20dp"
             fontPath="fonts/nunito_light.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,11 +90,12 @@
             tools:ignore="MissingPrefix" />
 
         <TextView
-            android:layout_marginLeft="3dp"
             fontPath="fonts/nunito_light.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:drawableLeft="@drawable/image6"
+            android:drawablePadding="10dp"
             android:text="Set Due Date"
             tools:ignore="MissingPrefix" />
 
@@ -113,7 +114,9 @@
 
 
         <TextView
+            android:drawableLeft="@drawable/gps3"
             android:layout_marginLeft="3dp"
+            android:drawablePadding="20dp"
             fontPath="fonts/nunito_light.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,7 +142,7 @@
             android:id="@+id/addTask"
             android:text="Add task"
             android:background="@drawable/btn_background"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/blue"
             android:layout_marginTop="40dp" />
 
     </LinearLayout>
