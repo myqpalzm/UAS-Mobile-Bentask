@@ -39,7 +39,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
-        holder.category_id_txt.setText(String.valueOf(category_id.get(position)));
         holder.category_name_txt.setText(String.valueOf(category_name.get(position)));
         //Recyclerview onClickListener
     }
