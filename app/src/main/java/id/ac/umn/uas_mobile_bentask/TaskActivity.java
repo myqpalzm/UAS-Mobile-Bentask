@@ -1,6 +1,7 @@
 package id.ac.umn.uas_mobile_bentask;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -50,6 +51,10 @@ public class TaskActivity extends AppCompatActivity {
         adapterTask = new AdapterTask(TaskActivity.this,this,task_id,task_name,id);
         recyclerView.setAdapter(adapterTask);
         recyclerView.setLayoutManager(new LinearLayoutManager(TaskActivity.this));
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(title);
+        }
     }
     void getAndSetIntentData(){
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title")){

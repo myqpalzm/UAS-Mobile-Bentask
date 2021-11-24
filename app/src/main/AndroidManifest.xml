@@ -41,7 +41,8 @@
             android:exported="true" />
         <activity
             android:name=".TaskActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".CategoryActivity"/>
         <activity
             android:name=".UpdateCategoryActivity"
             android:exported="true"
