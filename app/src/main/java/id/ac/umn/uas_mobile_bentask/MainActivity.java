@@ -1,5 +1,6 @@
 package id.ac.umn.uas_mobile_bentask;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -33,6 +35,7 @@ public class MainActivity extends BaseActivity implements CreateTaskBottomSheetF
     ImageView noDataImage;
     @BindView(R.id.calendar)
     ImageView calendar;
+    String id_category,category_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,12 @@ public class MainActivity extends BaseActivity implements CreateTaskBottomSheetF
             ShowCalendarViewBottomSheet showCalendarViewBottomSheet = new ShowCalendarViewBottomSheet();
             showCalendarViewBottomSheet.show(getSupportFragmentManager(), showCalendarViewBottomSheet.getTag());
         });
+
+        getAndSetIntentData();
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(category_name);
+        }
     }
 
     public void setUpAdapter() {
@@ -94,5 +103,14 @@ public class MainActivity extends BaseActivity implements CreateTaskBottomSheetF
     @Override
     public void refresh() {
         getSavedTasks();
+    }
+    void getAndSetIntentData(){
+        if(getIntent().hasExtra("id") && getIntent().hasExtra("title")){
+            id_category = getIntent().getStringExtra("id");
+            category_name = getIntent().getStringExtra("title");
+
+        }else{
+            Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

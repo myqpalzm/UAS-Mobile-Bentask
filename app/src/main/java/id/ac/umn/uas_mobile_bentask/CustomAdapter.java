@@ -47,6 +47,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, MainActivity.class);
+                intent.putExtra("id",String.valueOf(category_id.get(position)));
+                intent.putExtra("title",String.valueOf(category_name.get(position)));
                 context.startActivity(intent);
             }
         });

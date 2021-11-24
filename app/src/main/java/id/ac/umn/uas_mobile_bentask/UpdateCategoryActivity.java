@@ -29,9 +29,6 @@ public class UpdateCategoryActivity extends AppCompatActivity {
         update_button = findViewById(R.id.update_button);
         delete_button = findViewById(R.id.delete_button);
 
-        //First we call this
-        getAndSetIntentData();
-
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
