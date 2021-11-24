@@ -27,6 +27,7 @@ public class UpdateCategoryActivity extends AppCompatActivity {
 
         category_input = findViewById(R.id.category_input2);
         update_button = findViewById(R.id.update_button);
+        delete_button = findViewById(R.id.delete_button);
 
         //First we call this
         getAndSetIntentData();
@@ -37,6 +38,15 @@ public class UpdateCategoryActivity extends AppCompatActivity {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateCategoryActivity.this);
                 title = category_input.getText().toString().trim();
                 myDB.updateData(id, title);
+                Intent intent = new Intent(UpdateCategoryActivity.this, CategoryActivity.class);
+                startActivity(intent);
+            }
+        });
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateCategoryActivity.this);
+                myDB.deleteOneRow(id);
                 Intent intent = new Intent(UpdateCategoryActivity.this, CategoryActivity.class);
                 startActivity(intent);
             }
