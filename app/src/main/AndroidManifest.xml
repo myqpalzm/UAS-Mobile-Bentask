@@ -37,6 +37,12 @@
             android:exported="true"
             android:label="@string/title_activity_maps" />
         <activity
+            android:name=".ActivityAddTask"
+            android:exported="true" />
+        <activity
+            android:name=".TaskActivity"
+            android:exported="true" />
+        <activity
             android:name=".UpdateCategoryActivity"
             android:exported="true"
             android:parentActivityName=".CategoryActivity" />

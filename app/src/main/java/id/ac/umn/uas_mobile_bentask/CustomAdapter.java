@@ -22,7 +22,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Context context;
     private Activity activity;
     private ArrayList category_id, category_name;
-    int position;
 
     CustomAdapter(Activity activity, Context context, ArrayList category_id, ArrayList category_name){
         this.activity = activity;
@@ -46,7 +45,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, TaskActivity.class);
                 intent.putExtra("id",String.valueOf(category_id.get(position)));
                 intent.putExtra("title",String.valueOf(category_name.get(position)));
                 context.startActivity(intent);

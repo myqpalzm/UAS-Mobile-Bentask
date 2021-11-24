@@ -59,9 +59,7 @@ public class UpdateCategoryActivity extends AppCompatActivity {
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title")){
             id = getIntent().getStringExtra("id");
             title = getIntent().getStringExtra("title");
-
             category_input.setText(title);
-
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }
