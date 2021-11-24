@@ -19,10 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
-     Context context;
-     ArrayList category_id, category_name;
+    private Context context;
+    private Activity activity;
+    private ArrayList category_id, category_name;
+    int position;
 
-    CustomAdapter(Context context, ArrayList category_id, ArrayList category_name){
+    CustomAdapter(Activity activity, Context context, ArrayList category_id, ArrayList category_name){
+        this.activity = activity;
         this.context = context;
         this.category_id = category_id;
         this.category_name = category_name;
@@ -40,7 +43,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         holder.category_name_txt.setText(String.valueOf(category_name.get(position)));
-        //Recyclerview onClickListener
+
     }
 
     @Override

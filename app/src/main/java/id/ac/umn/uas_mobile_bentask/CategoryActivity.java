@@ -1,6 +1,8 @@
 package id.ac.umn.uas_mobile_bentask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,11 +19,9 @@ import java.util.ArrayList;
 public class CategoryActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FloatingActionButton add_button;
-
     MyDatabaseHelper myDB;
     ArrayList<String> category_id,category_name;
     CustomAdapter customAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +39,30 @@ public class CategoryActivity extends AppCompatActivity {
         myDB = new MyDatabaseHelper(CategoryActivity.this);
         category_id = new ArrayList<>();
         category_name = new ArrayList<>();
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                Intent intent = new Intent(CategoryActivity.this, UpdateCategoryActivity.class);
+                int position = viewHolder.getAdapterPosition();
+                intent.putExtra("id",String.valueOf(category_id.get(position)));
+                intent.putExtra("title",String.valueOf(category_name.get(position)));
+                startActivity(intent);
+            }
+        };
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
         storeDataInArrays();
-
-        customAdapter = new CustomAdapter(CategoryActivity.this,category_id,category_name);
+        customAdapter = new CustomAdapter(CategoryActivity.this,this, category_id, category_name);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(CategoryActivity.this));
+
     }
+
     void storeDataInArrays() {
         Cursor cursor = myDB.readAllData();
         if (cursor.getCount() == 0) {
@@ -57,5 +74,4 @@ public class CategoryActivity extends AppCompatActivity {
             }
         }
     }
-
 }

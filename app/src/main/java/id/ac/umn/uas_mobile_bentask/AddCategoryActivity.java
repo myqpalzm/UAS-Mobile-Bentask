@@ -13,6 +13,7 @@ public class AddCategoryActivity extends AppCompatActivity {
     EditText category_input;
     Button add_button;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
