@@ -25,7 +25,7 @@
         <activity
             android:name=".CategoryActivity"
             android:exported="true"
-            android:label="Category" />
+            android:label="" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

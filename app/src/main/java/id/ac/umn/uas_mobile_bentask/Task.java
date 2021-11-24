@@ -2,6 +2,7 @@ package id.ac.umn.uas_mobile_bentask;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -27,7 +28,6 @@ public class Task implements Serializable {
     String lastAlarm;
     @ColumnInfo(name = "event")
     String event;
-
     public Task() {
 
     }

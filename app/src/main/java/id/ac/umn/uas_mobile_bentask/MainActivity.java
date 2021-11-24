@@ -108,7 +108,6 @@ public class MainActivity extends BaseActivity implements CreateTaskBottomSheetF
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title")){
             id_category = getIntent().getStringExtra("id");
             category_name = getIntent().getStringExtra("title");
-
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -28,6 +29,8 @@ public class CategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.bentask);
         setContentView(R.layout.activity_category);
         recyclerView = findViewById(R.id.recyclerView);
         add_button  = findViewById(R.id.add_button);
