@@ -52,6 +52,10 @@ public class UpdateCategoryActivity extends AppCompatActivity {
             }
         });
         getAndSetIntentData();
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle(title);
+        }
     }
 
     void getAndSetIntentData(){

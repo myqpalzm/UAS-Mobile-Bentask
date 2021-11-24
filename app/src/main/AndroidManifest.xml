@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".UpdateCategoryActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".CategoryActivity"/>
         <activity
             android:name=".AddCategoryActivity"
             android:exported="true"
