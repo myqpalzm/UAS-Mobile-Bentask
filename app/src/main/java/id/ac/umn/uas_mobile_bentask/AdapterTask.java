@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> {
     private Context context;
     private Activity activity;
-    private ArrayList task_id,task_name;
+    private ArrayList task_id,task_name,task_desc;
     String category_id;
 
     AdapterTask(Activity activity, Context context, ArrayList task_id, ArrayList task_name,String category_id){
@@ -51,7 +51,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView task_id_txt, task_name_txt;
+        TextView task_id_txt, task_name_txt,task_desc_txt;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);

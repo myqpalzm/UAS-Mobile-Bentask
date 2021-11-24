@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class ActivityAddTask extends AppCompatActivity {
 
-    EditText task_input;
+    EditText task_input,desc_input;
     Button add_task_button;
     String id,title;
     @Override
@@ -19,12 +19,13 @@ public class ActivityAddTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
         task_input = findViewById(R.id.task_input);
+        desc_input = findViewById(R.id.desc_input);
         add_task_button = findViewById(R.id.add_task_button);
         add_task_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 MyDatabaseHelper myDB = new MyDatabaseHelper(ActivityAddTask.this);
-                myDB.addTask(task_input.getText().toString().trim(),id);
+                myDB.addTask(task_input.getText().toString().trim(),desc_input.getText().toString().trim(),id);
                 Intent intent = new Intent(ActivityAddTask.this, TaskActivity.class);
                 intent.putExtra("id",id);
                 intent.putExtra("title",title);

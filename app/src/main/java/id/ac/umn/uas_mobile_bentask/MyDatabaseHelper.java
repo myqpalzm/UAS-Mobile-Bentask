@@ -70,11 +70,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-    void addTask(String title, String id){
+    void addTask(String title,String desc, String id){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(TASK_TITLE, title);
+        cv.put(taskDescription,desc);
         cv.put(categoryId, id);
+
+
         long result = db.insert(TABLE_TASK,null, cv);
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
