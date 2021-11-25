@@ -15,10 +15,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_NAME = "my_category";
     private static final String TABLE_TASK = "task";
-
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "category_name";
-
     private static final String TASK_ID = "taskId";
     private static final String TASK_TITLE = "taskTitle";
     private static final String taskDescription = "taskDesription";
@@ -149,6 +147,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     void deleteOneRow(String row_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if(result == -1){
+            Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    void deleteTask(String task_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_TASK, "taskId=?", new String[]{task_id});
         if(result == -1){
             Toast.makeText(context, "Failed to Delete.", Toast.LENGTH_SHORT).show();
         }else{

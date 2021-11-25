@@ -63,7 +63,6 @@ public class TaskActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-
         myDB = new MyDatabaseHelper(TaskActivity.this);
         task_id = new ArrayList<>();
         task_name = new ArrayList<>();

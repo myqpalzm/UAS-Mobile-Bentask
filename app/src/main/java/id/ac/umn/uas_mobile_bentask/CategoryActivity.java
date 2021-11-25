@@ -24,7 +24,6 @@ public class CategoryActivity extends AppCompatActivity {
     MyDatabaseHelper myDB;
     ArrayList<String> category_id,category_name;
     CustomAdapter customAdapter;
-    LinearLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
