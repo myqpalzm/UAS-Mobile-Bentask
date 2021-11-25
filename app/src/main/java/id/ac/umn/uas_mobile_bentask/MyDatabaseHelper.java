@@ -111,7 +111,6 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     Cursor readTasks(String COLUMN_ID){
         String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + categoryId + " = " + COLUMN_ID;
         SQLiteDatabase db = this.getReadableDatabase();
-
         Cursor cursor = null;
         if(db != null){
             cursor = db.rawQuery(query, null);
@@ -133,11 +132,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateDataTask(String row_id, String title){
+    void updateDataTask(String row_id, String title,String desc){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(TASK_TITLE, title);
-
+        cv.put(taskDescription, desc);
         long result = db.update(TABLE_TASK, cv, "taskId=?", new String[]{row_id});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();

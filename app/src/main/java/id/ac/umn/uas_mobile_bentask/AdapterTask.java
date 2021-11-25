@@ -22,11 +22,12 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
     private ArrayList task_id,task_name,task_desc;
     String category_id;
 
-    AdapterTask(Activity activity, Context context, ArrayList task_id, ArrayList task_name,String category_id){
+    AdapterTask(Activity activity, Context context, ArrayList task_id, ArrayList task_name, ArrayList task_desc, String category_id){
         this.activity = activity;
         this.context = context;
         this.task_id  = task_id;
         this.task_name = task_name;
+        this.task_desc = task_desc;
         this.category_id = category_id;
     }
 
@@ -51,13 +52,14 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView task_id_txt, task_name_txt,task_desc_txt;
+        TextView task_id_txt, task_name_txt;
+        LinearLayout taskLayout;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
             task_id_txt = itemView.findViewById(R.id.task_id_txt);
             task_name_txt = itemView.findViewById(R.id.task_name_txt);
+            taskLayout = itemView.findViewById(R.id.taskLayout);
         }
-
     }
 }
