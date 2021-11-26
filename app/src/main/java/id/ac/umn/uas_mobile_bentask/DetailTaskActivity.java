@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DetailTaskActivity extends AppCompatActivity {
 
-    EditText task_input2,task_desc2;
+    TextView task_input2,task_desc2;
     Button submit_task_button;
     String task_id2,task_title2,task_descr2,id,title;
 
