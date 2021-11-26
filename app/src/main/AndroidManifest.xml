@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".DetailTaskActivity"
+            android:exported="true" />
+        <activity
             android:name=".UpdateTaskActivity"
             android:exported="true" />
         <!--

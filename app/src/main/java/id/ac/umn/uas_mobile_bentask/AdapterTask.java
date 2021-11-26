@@ -53,7 +53,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
         holder.taskLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UpdateTaskActivity.class);
+                Intent intent = new Intent(context, DetailTaskActivity.class);
                 intent.putExtra("task_id",String.valueOf(task_id.get(position)));
                 intent.putExtra("task_title",String.valueOf(task_name.get(position)));
                 intent.putExtra("task_desc",String.valueOf(task_desc.get(position)));
