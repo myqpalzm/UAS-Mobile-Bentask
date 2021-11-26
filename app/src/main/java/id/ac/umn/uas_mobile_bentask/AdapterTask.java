@@ -2,6 +2,7 @@ package id.ac.umn.uas_mobile_bentask;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,19 +24,19 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
     private Activity activity;
     private ArrayList<String> task_id,task_name,task_desc;
     private ArrayList<String> taskList;
-    String category_id;
-    AdapterTask(Activity activity, Context context, ArrayList<String> task_id, ArrayList<String> task_name, ArrayList<String> task_desc, String category_id){
+    String category_id,category_name;
+    AdapterTask(Activity activity, Context context, ArrayList<String> task_id, ArrayList<String> task_name, ArrayList<String> task_desc, String category_id,String category_name){
         this.activity = activity;
         this.context = context;
         this.task_id  = task_id;
         this.task_name = task_name;
         this.task_desc = task_desc;
         this.category_id = category_id;
+        this.category_name = category_name;
         taskList = new ArrayList<>();
         taskList.addAll(task_name);
         taskList.addAll(task_id);
         taskList.addAll(task_desc);
-        taskList.add(category_id);
     }
 
 
@@ -51,6 +52,18 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         holder.task_name_txt.setText(String.valueOf(task_name.get(position)));
+        holder.taskLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UpdateTaskActivity.class);
+                intent.putExtra("task_id",String.valueOf(task_id.get(position)));
+                intent.putExtra("task_title",String.valueOf(task_name.get(position)));
+                intent.putExtra("task_desc",String.valueOf(task_desc.get(position)));
+                intent.putExtra("id",category_id);
+                intent.putExtra("title",category_name);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -82,13 +95,10 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
         }
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults results) {
-            task_name.clear();
             task_id.clear();
-            task_desc.clear();
-            task_name.addAll((Collection<? extends String>) results.values);
             task_id.addAll((Collection<? extends String>) results.values);
+            task_name.addAll((Collection<? extends String>) results.values);
             task_desc.addAll((Collection<? extends String>) results.values);
-
             notifyDataSetChanged();
         }
     };
