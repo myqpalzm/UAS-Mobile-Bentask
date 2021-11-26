@@ -35,8 +35,6 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
         this.category_name = category_name;
         taskList = new ArrayList<>();
         taskList.addAll(task_name);
-        taskList.addAll(task_id);
-        taskList.addAll(task_desc);
     }
 
 
@@ -96,9 +94,10 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults results) {
             task_id.clear();
+            task_name.clear();
             task_id.addAll((Collection<? extends String>) results.values);
             task_name.addAll((Collection<? extends String>) results.values);
-            task_desc.addAll((Collection<? extends String>) results.values);
+
             notifyDataSetChanged();
         }
     };

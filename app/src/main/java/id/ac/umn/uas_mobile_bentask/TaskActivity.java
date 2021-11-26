@@ -48,7 +48,24 @@ public class TaskActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
 
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                Intent intent = new Intent(TaskActivity.this, UpdateTaskActivity.class);
+                int position = viewHolder.getAdapterPosition();
+                intent.putExtra("task_id",String.valueOf(task_id.get(position)));
+                intent.putExtra("task_title",String.valueOf(task_name.get(position)));
+                intent.putExtra("task_desc",String.valueOf(task_desc.get(position)));
+                intent.putExtra("id",id);
+                intent.putExtra("title",title);
+                startActivity(intent);
+            }
+        };
         myDB = new MyDatabaseHelper(TaskActivity.this);
         task_id = new ArrayList<>();
         task_name = new ArrayList<>();
@@ -56,6 +73,8 @@ public class TaskActivity extends AppCompatActivity {
         getAndSetIntentData();
         storeDataInArrays();
         adapterTask = new AdapterTask(TaskActivity.this,this,task_id,task_name,task_desc,id,title);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(adapterTask);
         recyclerView.setLayoutManager(new LinearLayoutManager(TaskActivity.this));
         ActionBar ab = getSupportActionBar();
