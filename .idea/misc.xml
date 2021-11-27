@@ -3,31 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/drawable/btn_background.xml" value="0.1" />
-        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/drawable/btn_border.xml" value="0.1" />
-        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/drawable/ic_add_black_24dp.xml" value="0.1" />
-        <entry key="..\:/UAS-Mobile-Bentask/app/src/main/res/layout/activity_add_task.xml" value="0.1" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_add_category.xml" value="0.18034447821681865" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_add_task.xml" value="0.25" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_alarm.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_category.xml" value="0.2" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_detail_task.xml" value="0.25" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_task.xml" value="0.22" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_update_category.xml" value="0.15" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_update_task.xml" value="0.18034447821681865" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/category_items.xml" value="0.16" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/dialog_completed_theme.xml" value="0.22" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/fragment_calendar_view.xml" value="0.296195652173913" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/fragment_create_task.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/item_task.xml" value="0.33" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/my_row.xml" value="0.25" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/my_task_row.xml" value="0.22" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/menu/main_menu.xml" value="0.33" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/menu/menu.xml" value="0.25" />
-        <entry key="..\:/Users/asus/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/menu/menu2.xml" value="0.18" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2774358974358974" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_add_task.xml" value="0.33" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_alarm.xml" value="0.265625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_category.xml" value="0.18432971014492755" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_detail_task.xml" value="0.12917933130699089" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/activity_maps.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/fragment_calendar_view.xml" value="0.265625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/my_row.xml" value="0.265625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/layout/my_task_row.xml" value="0.265625" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2774358974358974" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/UAS-Mobile-Bentask/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2774358974358974" />
       </map>
     </option>
   </component>
