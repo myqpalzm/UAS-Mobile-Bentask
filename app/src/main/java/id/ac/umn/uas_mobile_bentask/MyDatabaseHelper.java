@@ -21,6 +21,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String TASK_TITLE = "taskTitle";
     private static final String taskDescription = "taskDesription";
     private static final String isComplete = "isComplete";
+    private static final String TASK_DATE = "taskDate";
     private static final String firstAlarmTime = "firstAlarmTime";
     private static final String secondAlarmTime = "secondAlarmTime";
     private static final String lastAlarm = "lastAlarm";
@@ -43,6 +44,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 + TASK_TITLE + " TEXT, "
                 + taskDescription + " TEXT, "
                 + isComplete + " BOOLEAN, "
+                + TASK_DATE + " TEXT, "
                 + firstAlarmTime + " TEXT, "
                 + secondAlarmTime + " TEXT, "
                 + lastAlarm + " TEXT, "
@@ -68,11 +70,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Added Successfully!", Toast.LENGTH_SHORT).show();
         }
     }
-    void addTask(String title,String desc, String id){
+    void addTask(String title,String desc,String date, String id){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(TASK_TITLE, title);
         cv.put(taskDescription,desc);
+        cv.put(TASK_DATE,date);
         cv.put(categoryId, id);
 
 
