@@ -42,7 +42,7 @@ public class DetailTaskActivity extends AppCompatActivity {
     }
 
     void getAndSetIntentData(){
-        if(getIntent().hasExtra("task_id") && getIntent().hasExtra("task_title") && getIntent().hasExtra("task_desc")&& getIntent().hasExtra("task_date")){
+        if(getIntent().hasExtra("task_id") && getIntent().hasExtra("task_title") && getIntent().hasExtra("task_desc")&& getIntent().hasExtra("task_date") && getIntent().hasExtra("task_time")){
             task_id2 = getIntent().getStringExtra("task_id");
             task_title2 = getIntent().getStringExtra("task_title");
             task_descr2 = getIntent().getStringExtra("task_desc");
@@ -54,7 +54,7 @@ public class DetailTaskActivity extends AppCompatActivity {
             task_desc2.setText(task_descr2);
             task_date2.setText(task_dates2);
             task_time2.setText(task_times2);
-        }else{
+        }else {
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }
     }

@@ -1,13 +1,5 @@
 package id.ac.umn.uas_mobile_bentask;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -16,6 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,7 +30,7 @@ public class TaskActivity extends AppCompatActivity {
 
     MyDatabaseHelper myDB;
     LinearLayout taskLayout;
-    ArrayList<String> task_id,task_name,task_desc,task_date;
+    ArrayList<String> task_id,task_name,task_desc,task_date,task_time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,7 @@ public class TaskActivity extends AppCompatActivity {
                 intent.putExtra("task_title",String.valueOf(task_name.get(position)));
                 intent.putExtra("task_desc",String.valueOf(task_desc.get(position)));
                 intent.putExtra("task_date",String.valueOf(task_date.get(position)));
+                intent.putExtra("task_time",String.valueOf(task_time.get(position)));
                 intent.putExtra("id",id);
                 intent.putExtra("title",title);
                 startActivity(intent);
@@ -74,7 +75,7 @@ public class TaskActivity extends AppCompatActivity {
         task_date = new ArrayList<>();
         getAndSetIntentData();
         storeDataInArrays();
-        adapterTask = new AdapterTask(TaskActivity.this,this,task_id,task_name,task_desc,task_date,id,title);
+        adapterTask = new AdapterTask(TaskActivity.this,this,task_id,task_name,task_desc,task_date,task_time,id,title);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(adapterTask);
@@ -102,6 +103,7 @@ public class TaskActivity extends AppCompatActivity {
                 task_name.add(cursor.getString(1));
                 task_desc.add(cursor.getString(2));
                 task_date.add(cursor.getString(4));
+                task_time.add(cursor.getString(5));
             }
         }
     }

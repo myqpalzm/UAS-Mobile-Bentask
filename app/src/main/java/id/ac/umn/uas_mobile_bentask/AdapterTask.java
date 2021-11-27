@@ -22,16 +22,17 @@ import java.util.Collection;
 public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> implements Filterable {
     private Context context;
     private Activity activity;
-    private ArrayList<String> task_id,task_name,task_desc,task_date;
+    private ArrayList<String> task_id,task_name,task_desc,task_date, task_time;
     private ArrayList<String> taskList;
     String category_id,category_name;
-    AdapterTask(Activity activity, Context context, ArrayList<String> task_id, ArrayList<String> task_name, ArrayList<String> task_desc,ArrayList<String> task_date, String category_id,String category_name){
+    AdapterTask(Activity activity, Context context, ArrayList<String> task_id, ArrayList<String> task_name, ArrayList<String> task_desc,ArrayList<String> task_date, ArrayList<String> task_time, String category_id,String category_name){
         this.activity = activity;
         this.context = context;
         this.task_id  = task_id;
         this.task_name = task_name;
         this.task_desc = task_desc;
         this.task_date = task_date;
+        this.task_time = task_time;
         this.category_id = category_id;
         this.category_name = category_name;
         taskList = new ArrayList<>();
@@ -59,6 +60,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
                 intent.putExtra("task_title",String.valueOf(task_name.get(position)));
                 intent.putExtra("task_desc",String.valueOf(task_desc.get(position)));
                 intent.putExtra("task_date",String.valueOf(task_date.get(position)));
+                intent.putExtra("task_time",String.valueOf(task_time.get(position)));
                 intent.putExtra("id",category_id);
                 intent.putExtra("title",category_name);
                 context.startActivity(intent);
