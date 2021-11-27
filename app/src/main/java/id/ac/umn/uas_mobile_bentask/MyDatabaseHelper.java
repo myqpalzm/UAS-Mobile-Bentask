@@ -157,6 +157,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }
+
     void deleteTask(String task_id){
         SQLiteDatabase db = this.getWritableDatabase();
         long result = db.delete(TABLE_TASK, "taskId=?", new String[]{task_id});
@@ -166,6 +167,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Successfully Deleted.", Toast.LENGTH_SHORT).show();
         }
     }
+
     void deleteAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_NAME);
