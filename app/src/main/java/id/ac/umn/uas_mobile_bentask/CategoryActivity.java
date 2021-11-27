@@ -29,7 +29,7 @@ public class CategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.bentask);
+        getSupportActionBar().setIcon(R.drawable.ic_bentask_icon_bar);
         setContentView(R.layout.activity_category);
         recyclerView = findViewById(R.id.recyclerView);
         add_button  = findViewById(R.id.add_button);
