@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -60,11 +59,7 @@
             android:name=".CategoryActivity"
             android:exported="true"
             android:label="" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:parentActivityName=".CategoryActivity" />
-        <activity android:name=".AlarmActivity" />
+
         <activity
             android:name=".ActivitySplashScreen"
             android:exported="true">
@@ -75,19 +70,6 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".AlarmBroadcastReceiver"
-            android:enabled="false"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".AlarmService"
-            android:enabled="true"
-            android:exported="true" />
     </application>
 
 </manifest>

@@ -42,7 +42,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 myDB.updateDataTask(task_id, task_title,task_descr,task_dates);
                 Intent intent = new Intent(UpdateTaskActivity.this, TaskActivity.class);
                 intent.putExtra("id",id);
-                intent.putExtra("stitle",title);
+                intent.putExtra("title",title);
                 startActivity(intent);
             }
         });
