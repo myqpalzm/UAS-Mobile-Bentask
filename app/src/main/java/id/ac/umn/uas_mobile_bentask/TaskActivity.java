@@ -30,7 +30,7 @@ public class TaskActivity extends AppCompatActivity {
 
     MyDatabaseHelper myDB;
     LinearLayout taskLayout;
-    ArrayList<String> task_id,task_name,task_desc;
+    ArrayList<String> task_id,task_name,task_desc,task_date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,7 @@ public class TaskActivity extends AppCompatActivity {
                 intent.putExtra("task_id",String.valueOf(task_id.get(position)));
                 intent.putExtra("task_title",String.valueOf(task_name.get(position)));
                 intent.putExtra("task_desc",String.valueOf(task_desc.get(position)));
+                intent.putExtra("task_date",String.valueOf(task_date.get(position)));
                 intent.putExtra("id",id);
                 intent.putExtra("title",title);
                 startActivity(intent);
@@ -70,9 +71,10 @@ public class TaskActivity extends AppCompatActivity {
         task_id = new ArrayList<>();
         task_name = new ArrayList<>();
         task_desc = new ArrayList<>();
+        task_date = new ArrayList<>();
         getAndSetIntentData();
         storeDataInArrays();
-        adapterTask = new AdapterTask(TaskActivity.this,this,task_id,task_name,task_desc,id,title);
+        adapterTask = new AdapterTask(TaskActivity.this,this,task_id,task_name,task_desc,task_date,id,title);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(adapterTask);
@@ -99,6 +101,7 @@ public class TaskActivity extends AppCompatActivity {
                 task_id.add(cursor.getString(0));
                 task_name.add(cursor.getString(1));
                 task_desc.add(cursor.getString(2));
+                task_date.add(cursor.getString(4));
             }
         }
     }
