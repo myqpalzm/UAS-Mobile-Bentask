@@ -32,6 +32,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
         task_input = findViewById(R.id.task_input2);
         task_desc = findViewById(R.id.desc_input2);
         task_date = findViewById(R.id.date_input2);
+        task_time = findViewById(R.id.time_input2);
         cal2 = findViewById(R.id.datepicker2);
         alarm2 = findViewById(R.id.timepicker2);
         update_task_button = findViewById(R.id.update_task_button);
