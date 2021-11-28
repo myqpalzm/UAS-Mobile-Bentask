@@ -24,8 +24,8 @@ public class ActivityAddTask extends AppCompatActivity {
     String id,title;
     ImageView cal;
     ImageView alarm;
-    private int mDate,mMonth,mYear;
-    int t1Hour, t1Minute;
+    private int mDate,mMonth,mYear,t1Hour,t1Minute;;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

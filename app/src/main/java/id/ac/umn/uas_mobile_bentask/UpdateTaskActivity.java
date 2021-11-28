@@ -1,26 +1,29 @@
 package id.ac.umn.uas_mobile_bentask;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
 public class UpdateTaskActivity extends AppCompatActivity {
-    EditText task_input,task_desc,task_date;
+    EditText task_input,task_desc,task_date, task_time;
     Button update_task_button,delete_task_button;
-    String task_id,task_title,task_descr,task_dates,id,title;
-    ImageView cal2;
-    private int mDate2,mMonth2,mYear2;
+    String task_id,task_title,task_descr,task_dates,task_times,id,title;
+    ImageView cal2, alarm2;
+    private int mDate2,mMonth2,mYear2,t1Hour2,t1Minute2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
         task_desc = findViewById(R.id.desc_input2);
         task_date = findViewById(R.id.date_input2);
         cal2 = findViewById(R.id.datepicker2);
+        alarm2 = findViewById(R.id.timepicker2);
         update_task_button = findViewById(R.id.update_task_button);
         delete_task_button = findViewById(R.id.delete_task_button);
         update_task_button.setOnClickListener(new View.OnClickListener() {
@@ -39,7 +43,8 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 task_title = task_input.getText().toString().trim();
                 task_descr = task_desc.getText().toString().trim();
                 task_dates = task_date.getText().toString().trim();
-                myDB.updateDataTask(task_id, task_title,task_descr,task_dates);
+                task_times = task_time.getText().toString().trim();
+                myDB.updateDataTask(task_id, task_title,task_descr,task_dates, task_times);
                 Intent intent = new Intent(UpdateTaskActivity.this, TaskActivity.class);
                 intent.putExtra("id",id);
                 intent.putExtra("title",title);
@@ -61,6 +66,26 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 },mYear2,mMonth2,mDate2);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
+            }
+        });
+        alarm2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(UpdateTaskActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        t1Hour2 = hourOfDay;
+                        t1Minute2 = minute;
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(0,0,0,t1Hour2, t1Minute2);
+                        task_time.setText(DateFormat.format("hh:mm aa", calendar));
+                    }
+                }, 12, 0, false
+
+                );
+                timePickerDialog.updateTime(t1Hour2, t1Minute2);
+                timePickerDialog.show();
             }
         });
         delete_task_button.setOnClickListener(new View.OnClickListener() {

@@ -133,7 +133,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateDataTask(String row_id, String title,String desc,String date){
+    void updateDataTask(String row_id, String title,String desc,String date, String firstAlarmTime){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(TASK_TITLE, title);
