@@ -45,7 +45,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 task_descr = task_desc.getText().toString().trim();
                 task_dates = task_date.getText().toString().trim();
                 task_times = task_time.getText().toString().trim();
-                myDB.updateDataTask(task_id, task_title,task_descr,task_dates, task_times);
+                myDB.updateDataTask(task_id, task_title,task_descr,task_dates,task_times);
                 Intent intent = new Intent(UpdateTaskActivity.this, TaskActivity.class);
                 intent.putExtra("id",id);
                 intent.putExtra("title",title);

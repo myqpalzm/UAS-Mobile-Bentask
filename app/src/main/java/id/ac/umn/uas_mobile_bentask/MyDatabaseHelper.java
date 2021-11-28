@@ -133,12 +133,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    void updateDataTask(String row_id, String title,String desc,String date, String firstAlarmTime){
+    void updateDataTask(String row_id, String title,String desc,String date, String time){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(TASK_TITLE, title);
         cv.put(taskDescription, desc);
         cv.put(TASK_DATE,date);
+        cv.put(firstAlarmTime,time);
         long result = db.update(TABLE_TASK, cv, "taskId=?", new String[]{row_id});
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
