@@ -1,8 +1,14 @@
 package id.ac.umn.uas_mobile_bentask;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -24,7 +30,10 @@ public class ActivityAddTask extends AppCompatActivity {
     String id,title;
     ImageView cal;
     ImageView alarm;
-    private int mDate,mMonth,mYear,t1Hour,t1Minute;;
+    private int mDate,mMonth,mYear,t1Hour,t1Minute;
+    private Calendar fullCalendar;
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,7 @@ public class ActivityAddTask extends AppCompatActivity {
         time_input = findViewById(R.id.time_input);
         alarm = findViewById(R.id.timepicker);
         add_task_button = findViewById(R.id.add_task_button);
+        createNotificationChannel();
         cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +57,9 @@ public class ActivityAddTask extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityAddTask.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
+                        fullCalendar.set(Calendar.YEAR,year);
+                        fullCalendar.set(Calendar.MONTH,(month+1));
+                        fullCalendar.set(Calendar.DATE,date);
                         date_input.setText(date+"-"+(month+1)+"-"+year);
                     }
                 },mYear,mMonth,mDate);
@@ -65,6 +78,8 @@ public class ActivityAddTask extends AppCompatActivity {
                         t1Minute = minute;
                         Calendar calendar = Calendar.getInstance();
                         calendar.set(0,0,0,t1Hour, t1Minute);
+                        fullCalendar.set(Calendar.HOUR_OF_DAY, t1Hour);
+                        fullCalendar.set(Calendar.MINUTE, t1Minute);
                         time_input.setText(DateFormat.format("hh:mm aa", calendar));
                     }
                 }, 12, 0, false
@@ -83,10 +98,38 @@ public class ActivityAddTask extends AppCompatActivity {
                 intent.putExtra("id",id);
                 intent.putExtra("title",title);
                 startActivity(intent);
+                if(time_input != null){
+                    setAlarm();
+                }
             }
         });
         getAndSetIntentData();
     }
+
+    private void setAlarm() {
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent = new Intent(this,AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, fullCalendar.getTimeInMillis(), pendingIntent);
+
+        Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
+    }
+
+    private void createNotificationChannel() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "BentaskNotification";
+            String description = "Channel for Notification";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("Bentask", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
     void getAndSetIntentData(){
         if(getIntent().hasExtra("id") && getIntent().hasExtra("title")){
             id = getIntent().getStringExtra("id");

@@ -1,18 +1,16 @@
 package id.ac.umn.uas_mobile_bentask;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.database.Cursor;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -23,6 +21,7 @@ public class CategoryActivity extends AppCompatActivity {
     FloatingActionButton add_button;
     MyDatabaseHelper myDB;
     ArrayList<String> category_id,category_name;
+    ArrayList<String> task_id, task_title, task_desc, task_date, task_time, task_category_id;
     CustomAdapter customAdapter;
 
     @Override
