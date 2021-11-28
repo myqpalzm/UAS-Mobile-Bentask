@@ -50,19 +50,19 @@ public class ActivityAddTask extends AppCompatActivity {
         cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                mDate = calendar.get(Calendar.DATE);
-                mMonth = calendar.get(Calendar.MONTH);
-                mYear = calendar.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityAddTask.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
-                        calendar.set(Calendar.YEAR,year);
-                        calendar.set(Calendar.MONTH,month);
-                        calendar.set(Calendar.DATE,date);
+                        Calendar calDate = Calendar.getInstance();
+                        calDate.set(Calendar.YEAR,year);
+                        calDate.set(Calendar.MONTH,month);
+                        calDate.set(Calendar.DATE,date);
+                        mDate = calDate.get(Calendar.DATE);
+                        mMonth = calDate.get(Calendar.MONTH);
+                        mYear = calDate.get(Calendar.YEAR);
                         date_input.setText(date+"-"+(month+1)+"-"+year);
                     }
-                },mYear,mMonth,mDate);
+                },2021,10,30);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
             }
@@ -74,12 +74,12 @@ public class ActivityAddTask extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(ActivityAddTask.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        t1Hour = hourOfDay;
-                        t1Minute = minute;
-                        calendar = Calendar.getInstance();
-                        calendar.set(Calendar.HOUR_OF_DAY, t1Hour);
-                        calendar.set(Calendar.MINUTE, t1Minute);
-                        time_input.setText(DateFormat.format("hh:mm aa", calendar));
+                        Calendar calTime = Calendar.getInstance();
+                        calTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        calTime.set(Calendar.MINUTE, minute);
+                        t1Hour = calTime.get(Calendar.HOUR_OF_DAY);
+                        t1Minute = calTime.get(Calendar.MINUTE);
+                        time_input.setText(DateFormat.format("hh:mm aa", calTime));
                     }
                 }, 12, 0, false
 
@@ -98,6 +98,7 @@ public class ActivityAddTask extends AppCompatActivity {
                 intent.putExtra("title",title);
                 startActivity(intent);
                 if(time_input != null){
+                    calendar.set(mYear, mMonth, mDate, t1Hour, t1Minute, 0);
                     setAlarm();
                 }
             }
