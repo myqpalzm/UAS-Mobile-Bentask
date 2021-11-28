@@ -113,11 +113,13 @@ public class UpdateTaskActivity extends AppCompatActivity {
             task_title = getIntent().getStringExtra("task_title");
             task_descr = getIntent().getStringExtra("task_desc");
             task_dates = getIntent().getStringExtra("task_date");
+            task_times = getIntent().getStringExtra("task_time");
             id = getIntent().getStringExtra("id");
             title = getIntent().getStringExtra("title");
             task_input.setText(task_title);
             task_desc.setText(task_descr);
             task_date.setText(task_dates);
+            task_time.setText(task_times);
         }else{
             Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
         }
