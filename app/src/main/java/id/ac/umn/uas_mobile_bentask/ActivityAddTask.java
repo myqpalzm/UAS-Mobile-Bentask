@@ -51,13 +51,13 @@ public class ActivityAddTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final Calendar cal = Calendar.getInstance();
-                fullCalendar = Calendar.getInstance();
                 mDate = cal.get(Calendar.DATE);
                 mMonth = cal.get(Calendar.MONTH);
                 mYear = cal.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityAddTask.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
+                        fullCalendar = Calendar.getInstance();
                         fullCalendar.set(Calendar.YEAR,year);
                         fullCalendar.set(Calendar.MONTH,(month+1));
                         fullCalendar.set(Calendar.DATE,date);
@@ -71,18 +71,20 @@ public class ActivityAddTask extends AppCompatActivity {
         alarm.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
                 TimePickerDialog timePickerDialog = new TimePickerDialog(ActivityAddTask.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         t1Hour = hourOfDay;
                         t1Minute = minute;
                         Calendar calendar = Calendar.getInstance();
-                        calendar.set(0,0,0,t1Hour, t1Minute);
+                        mDate = calendar.get(Calendar.DATE);
+                        mMonth = calendar.get(Calendar.MONTH+1);
+                        mYear = calendar.get(Calendar.YEAR);
+                        calendar.set(mYear,mMonth,mDate,t1Hour, t1Minute,0);
+                        time_input.setText(DateFormat.format("hh:mm aa", calendar));
                         fullCalendar = Calendar.getInstance();
                         fullCalendar.set(Calendar.HOUR_OF_DAY, t1Hour);
                         fullCalendar.set(Calendar.MINUTE, t1Minute);
-                        time_input.setText(DateFormat.format("hh:mm aa", calendar));
                     }
                 }, 12, 0, false
 
