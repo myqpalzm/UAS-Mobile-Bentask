@@ -73,6 +73,7 @@ public class TaskActivity extends AppCompatActivity {
         task_name = new ArrayList<>();
         task_desc = new ArrayList<>();
         task_date = new ArrayList<>();
+        task_time = new ArrayList<>();
         getAndSetIntentData();
         storeDataInArrays();
         adapterTask = new AdapterTask(TaskActivity.this,this,task_id,task_name,task_desc,task_date,task_time,id,title);
