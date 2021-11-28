@@ -51,6 +51,7 @@ public class ActivityAddTask extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final Calendar cal = Calendar.getInstance();
+                fullCalendar = Calendar.getInstance();
                 mDate = cal.get(Calendar.DATE);
                 mMonth = cal.get(Calendar.MONTH);
                 mYear = cal.get(Calendar.YEAR);
@@ -78,6 +79,7 @@ public class ActivityAddTask extends AppCompatActivity {
                         t1Minute = minute;
                         Calendar calendar = Calendar.getInstance();
                         calendar.set(0,0,0,t1Hour, t1Minute);
+                        fullCalendar = Calendar.getInstance();
                         fullCalendar.set(Calendar.HOUR_OF_DAY, t1Hour);
                         fullCalendar.set(Calendar.MINUTE, t1Minute);
                         time_input.setText(DateFormat.format("hh:mm aa", calendar));
