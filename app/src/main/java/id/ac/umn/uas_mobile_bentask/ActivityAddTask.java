@@ -31,7 +31,7 @@ public class ActivityAddTask extends AppCompatActivity {
     ImageView cal;
     ImageView alarm;
     private int mDate,mMonth,mYear,t1Hour,t1Minute;
-    private Calendar fullCalendar;
+    private Calendar calendar;
     private AlarmManager alarmManager;
     private PendingIntent pendingIntent;
 
@@ -50,16 +50,16 @@ public class ActivityAddTask extends AppCompatActivity {
         cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Calendar cal = Calendar.getInstance();
-                mDate = cal.get(Calendar.DATE);
-                mMonth = cal.get(Calendar.MONTH);
-                mYear = cal.get(Calendar.YEAR);
+                calendar = Calendar.getInstance();
+                mDate = calendar.get(Calendar.DATE);
+                mMonth = calendar.get(Calendar.MONTH);
+                mYear = calendar.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityAddTask.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
-                        fullCalendar.set(Calendar.YEAR,year);
-                        fullCalendar.set(Calendar.MONTH,month);
-                        fullCalendar.set(Calendar.DATE,date);
+                        calendar.set(Calendar.YEAR,year);
+                        calendar.set(Calendar.MONTH,month);
+                        calendar.set(Calendar.DATE,date);
                         date_input.setText(date+"-"+(month+1)+"-"+year);
                     }
                 },mYear,mMonth,mDate);
@@ -76,10 +76,9 @@ public class ActivityAddTask extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         t1Hour = hourOfDay;
                         t1Minute = minute;
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.set(0,0,0,t1Hour, t1Minute);
-                        fullCalendar.set(Calendar.HOUR_OF_DAY, t1Hour);
-                        fullCalendar.set(Calendar.MINUTE, t1Minute);
+                        calendar = Calendar.getInstance();
+                        calendar.set(Calendar.HOUR_OF_DAY, t1Hour);
+                        calendar.set(Calendar.MINUTE, t1Minute);
                         time_input.setText(DateFormat.format("hh:mm aa", calendar));
                     }
                 }, 12, 0, false
@@ -112,7 +111,7 @@ public class ActivityAddTask extends AppCompatActivity {
         Intent intent = new Intent(this,AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
 
-        alarmManager.set(AlarmManager.RTC_WAKEUP, fullCalendar.getTimeInMillis(), pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 
         Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
     }
