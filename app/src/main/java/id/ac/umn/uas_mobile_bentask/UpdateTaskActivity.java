@@ -62,7 +62,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(UpdateTaskActivity.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
-                        task_date.setText(date+"-"+month+"-"+year);
+                        task_date.setText(date+"-"+(month+1)+"-"+year);
                     }
                 },mYear2,mMonth2,mDate2);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
