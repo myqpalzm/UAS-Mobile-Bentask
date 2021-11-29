@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> implements Filterable {
+public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> implements Filterable { //filterable biar bisa dibaca scr name aja (dicodingan ini)
     private Context context;
     private Activity activity;
     private ArrayList<String> task_id,task_name,task_desc,task_date, task_time;
@@ -36,7 +36,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
         this.category_id = category_id;
         this.category_name = category_name;
         taskList = new ArrayList<>();
-        taskList.addAll(task_name);
+        taskList.addAll(task_name); //baca scr nama aja
     }
 
 

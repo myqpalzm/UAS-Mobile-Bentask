@@ -38,7 +38,7 @@ public class CategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        myDB = new MyDatabaseHelper(CategoryActivity.this);
+        myDB = new MyDatabaseHelper(CategoryActivity.this); //declare
         category_id = new ArrayList<>();
         category_name = new ArrayList<>();
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
@@ -56,9 +56,9 @@ public class CategoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback); //tasknya bisa digeser kanan kiri
         itemTouchHelper.attachToRecyclerView(recyclerView);
-        storeDataInArrays();
+        storeDataInArrays(); //buat recycle view (baca dr database terus di setor ke array)
         customAdapter = new CustomAdapter(CategoryActivity.this,this, category_id, category_name);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(CategoryActivity.this));
@@ -66,13 +66,13 @@ public class CategoryActivity extends AppCompatActivity {
     }
 
     void storeDataInArrays() {
-        Cursor cursor = myDB.readAllData();
+        Cursor cursor = myDB.readAllData(); //baca dari database terus masukin 1 per 1 ke array yg udh dibuat
         if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No data.", Toast.LENGTH_SHORT).show(); //pop up di hp (alert)
         } else {
             while (cursor.moveToNext()) {
-                category_id.add(cursor.getString(0));
-                category_name.add(cursor.getString(1));
+                category_id.add(cursor.getString(0)); //kolom 0
+                category_name.add(cursor.getString(1)); //kolom 1
             }
         }
     }
