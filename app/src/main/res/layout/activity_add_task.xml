@@ -4,28 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityAddTask"
-    android:padding="30dp">
+    android:background="@drawable/bg_bgs_1"
+    android:padding="30dp"
+    tools:context=".ActivityAddTask">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:textSize="28dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
         android:hint="Add New Task"
+        android:textColorHint="#FFFFFF"
+        android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/task_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="72dp"
         android:ems="10"
         android:hint="Task Name"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,28 +43,31 @@
         android:ems="10"
         android:hint="Task Description"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_input"/>
+        app:layout_constraintTop_toBottomOf="@+id/task_input" />
 
 
     <EditText
         android:id="@+id/date_input"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="208dp"
         android:hint="Pick Date"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
- />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/datepicker"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="288dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="200dp"
         android:src="@drawable/calendericon"
         app:layout_constraintRight_toRightOf="@id/date_input"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,17 +77,20 @@
         android:id="@+id/time_input"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="360dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="288dp"
         android:hint="Pick Time"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/timepicker"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="358dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="288dp"
         android:src="@drawable/alarmicon"
         app:layout_constraintRight_toRightOf="@id/time_input"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,10 +100,12 @@
         android:id="@+id/add_task_button"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="#2B4B82"
         android:text="Add"
-        android:textSize="20sp"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_input" />

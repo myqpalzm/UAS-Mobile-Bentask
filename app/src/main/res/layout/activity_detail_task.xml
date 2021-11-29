@@ -4,107 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailTaskActivity"
-    android:padding="30dp">
+    android:background="@drawable/bg_langscape"
+    android:padding="30dp"
+    tools:context=".DetailTaskActivity">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:textSize="28sp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-black"
         android:text="Task Detail"
         android:textAlignment="center"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:textSize="23sp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Name :"
+        android:textColorHint="#FFFFFF"
+        android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/task_input3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="92dp"
+        android:fontFamily="sans-serif-medium"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:textSize="24sp"
+        android:layout_marginTop="140dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Description :"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/desc_input3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif-medium"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_input3"/>
+        app:layout_constraintTop_toBottomOf="@+id/task_input3" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:textSize="24sp"
+        android:layout_marginTop="216dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Deadline :"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/date_input3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-medium"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/desc_input3"/>
+        app:layout_constraintTop_toBottomOf="@+id/desc_input3" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:textSize="24sp"
+        android:layout_marginTop="292dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Time :"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/time_input3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="124dp"
+        android:fontFamily="sans-serif-medium"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/desc_input3"/>
+        app:layout_constraintTop_toBottomOf="@+id/desc_input3" />
 
     <Button
         android:id="@+id/submit_task_button"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#2B4B82"
         android:text="OK"
-        android:textSize="20sp"
         android:textAllCaps="false"
+        android:textColor="#FFFCFC"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time_input3" />

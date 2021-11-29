@@ -4,28 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateCategoryActivity"
-    android:padding="30dp">
+    android:background="#D3EEFB"
+    android:padding="30dp"
+    tools:context=".UpdateCategoryActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:textSize="28dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-black"
         android:hint="Update Category"
+        android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/category_input2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="Category Name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,9 +37,11 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
+        android:backgroundTint="#2B48B2"
         android:text="Update"
-        android:textSize="20sp"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category_input2" />
@@ -46,9 +51,11 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="10dp"
+        android:backgroundTint="#C71F1F"
         android:text="Delete"
-        android:textSize="20sp"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update_button" />
