@@ -103,8 +103,8 @@ public class TaskActivity extends AppCompatActivity {
                 task_id.add(cursor.getString(0));
                 task_name.add(cursor.getString(1));
                 task_desc.add(cursor.getString(2));
-                task_date.add(cursor.getString(4));
-                task_time.add(cursor.getString(5));
+                task_date.add(cursor.getString(3));
+                task_time.add(cursor.getString(4));
             }
         }
     }
