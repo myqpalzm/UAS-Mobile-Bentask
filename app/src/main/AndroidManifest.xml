@@ -14,30 +14,37 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".DetailTaskActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".UpdateTaskActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ActivityAddTask"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".TaskActivity"
             android:exported="true"
-            android:parentActivityName=".CategoryActivity" />
+            android:parentActivityName=".CategoryActivity"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".UpdateCategoryActivity"
             android:exported="true"
-            android:parentActivityName=".CategoryActivity" />
+            android:parentActivityName=".CategoryActivity"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".AddCategoryActivity"
             android:exported="true"
             android:label="Add New Category"
-            android:parentActivityName=".CategoryActivity" />
+            android:parentActivityName=".CategoryActivity"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".CategoryActivity"
             android:exported="true"
-            android:label="" />
+            android:label=""
+            android:screenOrientation="sensorPortrait" />
 
         <activity
             android:name=".ActivitySplashScreen"
