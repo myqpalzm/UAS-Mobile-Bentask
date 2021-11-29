@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_bgs_1"
+    android:background="@drawable/bg_clr"
     android:padding="30dp"
     tools:context=".ActivityAddTask">
 
@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
         android:hint="Add New Task"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#000000"
         android:textSize="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,8 +28,8 @@
         android:ems="10"
         android:hint="Task Name"
         android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
         android:hint="Task Description"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_input" />
@@ -58,7 +58,7 @@
         android:layout_marginTop="208dp"
         android:hint="Pick Date"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,7 +81,7 @@
         android:layout_marginTop="288dp"
         android:hint="Pick Time"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
