@@ -21,7 +21,6 @@ public class CategoryActivity extends AppCompatActivity {
     FloatingActionButton add_button;
     MyDatabaseHelper myDB;
     ArrayList<String> category_id,category_name;
-    ArrayList<String> task_id, task_title, task_desc, task_date, task_time, task_category_id;
     CustomAdapter customAdapter;
 
     @Override
