@@ -13,10 +13,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     private Context context;
     private static final String DATABASE_NAME = "ToDo.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_CATEGORY = "my_category";
+    private static final String TABLE_CATEGORY = "category";
     private static final String TABLE_TASK = "task";
     private static final String CATEGORY_ID = "_id";
-    private static final String CATEGORY_NAME = "category_name";
+    private static final String CATEGORY_NAME = "categoryName";
     private static final String TASK_ID = "taskId";
     private static final String TASK_NAME = "taskName";
     private static final String TASK_DESCRIPTION = "taskDesription";
@@ -92,8 +92,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    Cursor readTasks(String COLUMN_ID){
-        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + categoryId + " = " + COLUMN_ID;
+    Cursor readTasks(String CATEGORY_ID){
+        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + categoryId + " = " + CATEGORY_ID;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         if(db != null){
