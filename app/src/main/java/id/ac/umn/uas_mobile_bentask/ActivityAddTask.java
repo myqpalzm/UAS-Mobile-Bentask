@@ -38,6 +38,7 @@ public class ActivityAddTask extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fullCalendar = Calendar.getInstance();
         setContentView(R.layout.activity_add_task);
         task_input = findViewById(R.id.task_input);
         desc_input = findViewById(R.id.desc_input);
@@ -50,20 +51,18 @@ public class ActivityAddTask extends AppCompatActivity {
         cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Calendar cal = Calendar.getInstance();
-                mDate = cal.get(Calendar.DATE);
-                mMonth = cal.get(Calendar.MONTH);
-                mYear = cal.get(Calendar.YEAR);
+                mDate = fullCalendar.get(Calendar.DATE);
+                mMonth = fullCalendar.get(Calendar.MONTH);
+                mYear = fullCalendar.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityAddTask.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
-                        fullCalendar = Calendar.getInstance();
                         fullCalendar.set(Calendar.YEAR,year);
-                        fullCalendar.set(Calendar.MONTH,(month+1));
+                        fullCalendar.set(Calendar.MONTH,(month));
                         fullCalendar.set(Calendar.DATE,date);
                         date_input.setText(date+"-"+(month+1)+"-"+year);
                     }
-                },mYear,mMonth,mDate);
+                },mDate,mMonth,mYear);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
                 datePickerDialog.show();
             }
@@ -76,15 +75,8 @@ public class ActivityAddTask extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         t1Hour = hourOfDay;
                         t1Minute = minute;
-                        Calendar calendar = Calendar.getInstance();
-                        mDate = calendar.get(Calendar.DATE);
-                        mMonth = calendar.get(Calendar.MONTH+1);
-                        mYear = calendar.get(Calendar.YEAR);
-                        calendar.set(mYear,mMonth,mDate,t1Hour, t1Minute,0);
-                        time_input.setText(DateFormat.format("hh:mm aa", calendar));
-                        fullCalendar = Calendar.getInstance();
-                        fullCalendar.set(Calendar.HOUR_OF_DAY, t1Hour);
-                        fullCalendar.set(Calendar.MINUTE, t1Minute);
+                        fullCalendar.set(fullCalendar.get(Calendar.YEAR),fullCalendar.get(Calendar.MONTH),fullCalendar.get(Calendar.DATE),t1Hour, t1Minute, 0);
+                        time_input.setText(DateFormat.format("hh:mm aa", fullCalendar));
                     }
                 }, 12, 0, false
 
@@ -128,7 +120,6 @@ public class ActivityAddTask extends AppCompatActivity {
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel("Bentask", name, importance);
             channel.setDescription(description);
-
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }

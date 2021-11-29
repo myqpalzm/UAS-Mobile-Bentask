@@ -27,7 +27,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-medium"
         android:text="Name :"
-        android:textColorHint="#FFFFFF"
+        android:textColorHint="#000000"
         android:textSize="23sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

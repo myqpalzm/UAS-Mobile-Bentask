@@ -57,7 +57,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="208dp"
         android:hint="Pick Date"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -80,7 +80,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="288dp"
         android:hint="Pick Time"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textColorHint="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
