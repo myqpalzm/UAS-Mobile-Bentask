@@ -92,8 +92,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    Cursor readTasks(String CATEGORY_ID){
-        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + categoryId + " = " + CATEGORY_ID;
+    Cursor readTasks(String ID_CATEGORY){
+        String query = "SELECT * FROM " + TABLE_TASK + " WHERE " + categoryId + " = " + ID_CATEGORY;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         if(db != null){
