@@ -1,8 +1,14 @@
 package id.ac.umn.uas_mobile_bentask;
 
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -24,6 +30,9 @@ public class UpdateTaskActivity extends AppCompatActivity {
     String task_id,task_title,task_descr,task_dates,task_times,id,title;
     ImageView cal2, alarm2;
     private int mDate2,mMonth2,mYear2,t1Hour2,t1Minute2;
+    private Calendar fullCalendar;
+    private AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +46,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
         alarm2 = findViewById(R.id.timepicker2);
         update_task_button = findViewById(R.id.update_task_button);
         delete_task_button = findViewById(R.id.delete_task_button);
+        createNotificationChannel();
         update_task_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,18 +60,23 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 intent.putExtra("id",id);
                 intent.putExtra("title",title);
                 startActivity(intent);
+                if(task_times != null){
+                    setAlarm();
+                }
             }
         });
         cal2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Calendar cal = Calendar.getInstance();
-                mDate2 = cal.get(Calendar.DATE);
-                mMonth2 = cal.get(Calendar.MONTH);
-                mYear2 = cal.get(Calendar.YEAR);
+                mDate2 = fullCalendar.get(Calendar.DATE);
+                mMonth2 = fullCalendar.get(Calendar.MONTH);
+                mYear2 = fullCalendar.get(Calendar.YEAR);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(UpdateTaskActivity.this, android.R.style.Theme_DeviceDefault_Dialog, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
+                        fullCalendar.set(Calendar.YEAR,year);
+                        fullCalendar.set(Calendar.MONTH,month);
+                        fullCalendar.set(Calendar.DATE,date);
                         task_date.setText(date+"-"+(month+1)+"-"+year);
                     }
                 },mYear2,mMonth2,mDate2);
@@ -78,9 +93,8 @@ public class UpdateTaskActivity extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         t1Hour2 = hourOfDay;
                         t1Minute2 = minute;
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.set(0,0,0,t1Hour2, t1Minute2);
-                        task_time.setText(DateFormat.format("hh:mm aa", calendar));
+                        fullCalendar.set(fullCalendar.get(Calendar.YEAR),fullCalendar.get(Calendar.MONTH),fullCalendar.get(Calendar.DATE),t1Hour2, t1Minute2, 0);
+                        task_time.setText(DateFormat.format("hh:mm aa", fullCalendar));
                     }
                 }, 12, 0, false
 
@@ -104,6 +118,29 @@ public class UpdateTaskActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setTitle(title);
+        }
+    }
+
+    private void setAlarm() {
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+        Intent intent = new Intent(this,AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
+
+        alarmManager.set(AlarmManager.RTC_WAKEUP, fullCalendar.getTimeInMillis(), pendingIntent);
+
+        Toast.makeText(this, "Alarm set Successfully", Toast.LENGTH_SHORT).show();
+    }
+
+    private void createNotificationChannel() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "BentaskNotification";
+            String description = "Channel for Notification";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel("Bentask", name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
         }
     }
 

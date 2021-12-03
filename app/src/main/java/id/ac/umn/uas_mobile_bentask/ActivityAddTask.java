@@ -58,7 +58,7 @@ public class ActivityAddTask extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int date) {
                         fullCalendar.set(Calendar.YEAR,year);
-                        fullCalendar.set(Calendar.MONTH,(month));
+                        fullCalendar.set(Calendar.MONTH,month);
                         fullCalendar.set(Calendar.DATE,date);
                         date_input.setText(date+"-"+(month+1)+"-"+year);
                     }
