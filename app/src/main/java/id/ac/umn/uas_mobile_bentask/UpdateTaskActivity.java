@@ -51,18 +51,23 @@ public class UpdateTaskActivity extends AppCompatActivity {
         update_task_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateTaskActivity.this);
                 task_title = task_input.getText().toString().trim();
                 task_descr = task_desc.getText().toString().trim();
                 task_dates = task_date.getText().toString().trim();
                 task_times = task_time.getText().toString().trim();
-                myDB.updateDataTask(task_id, task_title,task_descr,task_dates,task_times);
-                Intent intent = new Intent(UpdateTaskActivity.this, TaskActivity.class);
-                intent.putExtra("id",id);
-                intent.putExtra("title",title);
-                startActivity(intent);
-                if(task_times != null){
-                    setAlarm();
+                if (task_title.equals("") || task_dates.equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please fill task name and date", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    MyDatabaseHelper myDB = new MyDatabaseHelper(UpdateTaskActivity.this);
+                    myDB.updateDataTask(task_id, task_title,task_descr,task_dates,task_times);
+                    Intent intent = new Intent(UpdateTaskActivity.this, TaskActivity.class);
+                    intent.putExtra("id",id);
+                    intent.putExtra("title",title);
+                    startActivity(intent);
+                    if(!task_times.equals("")){
+                        setAlarm();
+                    }
                 }
             }
         });
