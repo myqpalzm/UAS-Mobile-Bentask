@@ -48,7 +48,6 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.MyViewHolder> 
         return new MyViewHolder(view);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         holder.task_name_txt.setText(String.valueOf(task_name.get(position)));

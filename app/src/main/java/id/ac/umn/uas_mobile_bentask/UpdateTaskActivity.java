@@ -37,6 +37,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fullCalendar = Calendar.getInstance();
         setContentView(R.layout.activity_update_task);
         task_input = findViewById(R.id.task_input2);
         task_desc = findViewById(R.id.desc_input2);
