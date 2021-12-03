@@ -43,8 +43,8 @@ public class ActivityAddTask extends AppCompatActivity {
         task_input = findViewById(R.id.task_input);
         desc_input = findViewById(R.id.desc_input);
         date_input = findViewById(R.id.date_input);
-        cal = findViewById(R.id.datepicker);
         time_input = findViewById(R.id.time_input);
+        cal = findViewById(R.id.datepicker);
         alarm = findViewById(R.id.timepicker);
         add_task_button = findViewById(R.id.add_task_button);
         createNotificationChannel();
@@ -88,14 +88,19 @@ public class ActivityAddTask extends AppCompatActivity {
         add_task_button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                MyDatabaseHelper myDB = new MyDatabaseHelper(ActivityAddTask.this);
-                myDB.addTask(task_input.getText().toString().trim(),desc_input.getText().toString().trim(),date_input.getText().toString().trim(), time_input.getText().toString().trim(),id);
-                Intent intent = new Intent(ActivityAddTask.this, TaskActivity.class);
-                intent.putExtra("id",id);
-                intent.putExtra("title",title);
-                startActivity(intent);
-                if(time_input != null){
-                    setAlarm();
+                if (task_input.getText().toString().trim().equals("") || date_input.getText().toString().trim().equals("")) {
+                    Toast.makeText(getApplicationContext(), "Please fill task name and date", Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    MyDatabaseHelper myDB = new MyDatabaseHelper(ActivityAddTask.this);
+                    myDB.addTask(task_input.getText().toString().trim(),desc_input.getText().toString().trim(),date_input.getText().toString().trim(), time_input.getText().toString().trim(),id);
+                    Intent intent = new Intent(ActivityAddTask.this, TaskActivity.class);
+                    intent.putExtra("id",id);
+                    intent.putExtra("title",title);
+                    startActivity(intent);
+                    if(!time_input.getText().toString().trim().equals("")){
+                        setAlarm();
+                    }
                 }
             }
         });
