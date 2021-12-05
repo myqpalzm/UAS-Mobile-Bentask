@@ -15,7 +15,7 @@ Bentask is an Android aplication that helps its users organize their activities 
 7. If the task deadline is up, a notification will appear on your phone to notify you of the task.
 8. To find a specific task on a task category, open the desired category and tap on the searc button. An input box will appear for you to search for a specific keyword that appears in all your tasks' names.
 
-End with a few screenshots
+<img src="https://github.com/myqpalzm/UAS-Mobile-Bentask/blob/master/posterLandscape.png">
 
 ## Authors
 
