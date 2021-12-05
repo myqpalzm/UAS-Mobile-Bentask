@@ -1,5 +1,7 @@
 # Bentask: To-Do List App
 
+<img src="https://github.com/myqpalzm/UAS-Mobile-Bentask/blob/master/logo.svg">
+
 Bentask is an Android aplication that helps its users organize their activities to be more structured and efficient. Bentask has several features besides the to-do list, like task categories, notifications, task update, task delete, and search filter.
 
 ### How to use
