@@ -13,7 +13,7 @@ Bentask is an Android aplication that helps its users organize their activities 
 5. In this page, you can fill in the input for task name, task description, date, and time. After that, tap the Done button.
 6. You will be redirected to the selected category's page, and you can also see the newly created task. Swiping the task button to the left or right also gives you the option to update the task details or delete it.
 7. If the task deadline is up, a notification will appear on your phone to notify you of the task.
-8. To find a specific task on a task category, open the desired category and tap on the searc button. An input box will appear for you to search for a specific keyword that appears in all your tasks' names.
+8. To find a specific task on a task category, open the desired category and tap on the search button. An input box will appear for you to search for a specific keyword that appears in all your tasks' names.
 
 ### Promotional Poster
 
